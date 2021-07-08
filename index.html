@@ -7,158 +7,198 @@
       <title>Registration Form</title>
 			<style>
 				* {
-					font-family: monospace;
-					font-size: 20px;
+					margin: 0;
 					background-color: black;
+					font-family: monospace;
 					color: greenyellow;
 				}
 				
-				.fieldsetOne {
-					margin-top: 50px;
-					width: 200px;
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: 20px;
+/*				FOR HEADER*/
+				div h1 {
+					text-align: center;
+					background-color: green;
+					padding: 50px;
+					font-size: 35px
+				}
+				
+/*				FOR TEXT AND TEXTAREA*/
+				.divStyle {
+					display: flex;
+					flex-direction: column;
+					text-align: center;
+					width: 500px;
+					margin: auto;
+					margin-top: 100px;
+				}
+				
+				div.divStyle > label {
+					display: block;
+  				transform: translate(0, -3rem);
+					margin-bottom: 10px;
+					margin-top: 20px;
+				}
+				
+				textarea {
+					resize: none;
+					border-bottom: 2px solid green;
+					transition: border-color 0.2s ease;
+				}
+				
+				textarea:focus {
+					outline: none;
+					border-color: greenyellow;
+				}
+				
+				label + textarea {
+					margin-top: -20px;
+				}
+				
+				::-webkit-input-placeholder {
 					text-align: center;
 				}
 				
 				input[type="text"] {
-					width: 300px;
-					margin-top: 15px;
-					margin-bottom: 15px;
-					height: 20px;
-					width: 100%;
-					border: 2px solid gray; 
-					background: none;
-					position: relative;
-					top: 0;
-					left: 0;
-					z-index: 1;
-					padding: 8px 12px;
-					outline: 0;
+					border-bottom: 2px solid green;
+					transition: border-color 0.2s ease;
+					line-height: 45px;
 				}
 				
-				textarea {
-					min-height: 60px;
-					min-width: 400px;
-					width: 100%;
-					border: 2px solid gray; 
-					background: none;
-					position: relative;
-					top: 0;
-					left: 0;
-					z-index: 1;
-					padding: 8px 12px;
-					outline: 0;
+				input[type="text"]:focus {
+					outline: none;
+					border-color: greenyellow;
 				}
 				
-				input[type="checkbox"], input[type="radio"] {
-					margin: 8px 0 ;
+				@supports (not (-ms-ime-align:auto)) {
+						div.divStyle > label {
+							color: greenyellow;
+							transform: translate(0.25rem, -1.5rem);
+							transition: all 0.2s ease-out;
+						}
+
+						input[type="text"]:not(:placeholder-shown) + label {
+							color: greenyellow;
+							background-color: green;
+							transform: translate(0, -2.75rem);
+						}
 				}
 				
-				div h1 {
+/*				FOR SELECT*/
+				.divStyle2 {
+					margin-top: 80px;
+					margin-bottom: 80px;
 					text-align: center;
-					margin-top: 50px;
-					font-size: 40px
+				}
+				
+				select{
+					text-align-last:center;
+					direction: rtl;
+				}
+				
+				optgroup {
+					font-size: 0;
+				}
+
+				optgroup option {
+					font-size: 13px;
+					color: greenyellow;
+				}
+				
+/*				FOR CHECKBOX AND RADIO*/
+				.widthStyle {
+					width: 150px;
+					margin: 80px auto;
+				}
+				
+				fieldset {
+					border: solid yellowgreen 2px;
+				}
+				
+				legend {
+					text-align: center;
+				}
+				
+				legend ~ div {
+					display: flex;
+					flex-direction: column;
+					text-align: center;
 					
 				}
-				form {
-					background-color: g
-				}
 				
-				fieldset div {
-					display: inline-block;
-					text-align: right;
+				legend ~ div input {
 					margin: auto;
-				}
-				
-				form > div {
-					margin-top: 50px;
-					text-align: center;
-				}
-				
-				select {
 					margin-top: 10px;
+					
 				}
 				
-				div button {
-					margin-bottom: 30px;
+/*				FOR SUBMIT AND RESET BUTTON*/
+				button {
+					display: block;
+					margin: 20px auto;
+					border: solid yellowgreen 2px;
+					border-radius: 25%;
+					padding: 5px
 				}
-				
 				button:hover {
 					background-color: green;
 				}
-/*Experiment Style with copied code snippets on net haha*/
 				
 			</style>
   </head>
 	
 	<body>
 		<div>
-			<h1>'Ye who enter shall leave all hope...</h1>
+			<h1>'Ye who register shall leave all hope...</h1>
 		</div>
 		
 		<form>
-			<table class="fieldsetOne">
-	<!--			for first name-->
-				<tr>
-					<td>
-						<label for="fName">First Name</label>
-						<input type="text" id="fName" name="firstName" placeholder="First Name" required>
-					</td>
-				</tr>
+			<div class="divStyle">
+				
+		<!--			for first name-->
+							
+							<input type="text" id="fName" name="firstName" placeholder=" " required>
+							<label for="fName">First Name</label>
+							
+							
+		<!--			for middle name-->
+		
+							<input type="text" id="mName" name="middleName" placeholder=" " required>
+							<label for="mName">Middle Name</label>
 
-	<!--			for middle name-->
-				<tr>
-					<td>
-						<label for="mName">Middle Name</label>
-						<input type="text" id="mName" name="middleName" placeholder="Middle Name" required>
-					</td>
-				</tr>
+		<!--			for last name-->
+							
+							<input type="text" id="lName" name="lastName" placeholder=" " required>
+							<label for="lName">Last Name</label>
 
-	<!--			for last name-->
-				<tr>
-					<td>
-						<label for="lName">Last Name</label>
-						<input type="text" id="lName" name="lastName" placeholder="Last Name" required>
-					</td>
-				</tr>
-				<br>
-
-	<!--			for address-->
-				<tr>
-
-					<td>
-						Address<br><textarea id="address" name="address" placeholder="Your Home Address" cols=50 required></textarea>
-					</td>
-				</tr>
-			</table>
+		<!--			for address-->
+							<label for="address">Address</label>
+							<textarea id="address" name="address" placeholder="Your Home Address" cols=50 required></textarea>
+			</div>
 			
-			<fieldset class=fieldsetOne>
-					<legend>Gender</legend>
-					<div>
-						<label for="genderMale">Male</label>
-						<input type="radio" id="genderMale" name="gender" value="genderMale" required>
-					<br>
-						<label for="genderFemale">Female</label>
-						<input type="radio" id="genderFemale" name="gender" value="genderFemale" required>
-					</div>
-			</fieldset>
-			
-
 			<div>
-			<label for="careerPath">Select your Career Path:</label>
-				<br>
-			<select name="careerPath">
-				<optgroup label="Career Path Options">
-					<option value="frontEnd">Front End</option>
-					<option value="backEnd">Back End</option>
-					<option value="fullStack">Full Stack</option>
-				</optgroup>
-			</select>
+				<fieldset class="widthStyle">
+						<legend>Gender</legend>
+						<div>
+							<label for="genderMale">Male</label>
+							<input type="radio" id="genderMale" name="gender" value="genderMale" required>
+							<label for="genderFemale">Female</label>
+							<input type="radio" id="genderFemale" name="gender" value="genderFemale" required>
+						</div>
+				</fieldset>
+			</div>
+			
+			<div class="divStyle2">
+				<label for="careerPath">Select your Career Path:</label>
+				<select name="careerPath">
+					<optgroup>
+						<option value="frontEnd">Front End</option>
+						<option value="backEnd">Back End</option>
+						<option value="fullStack">Full Stack</option>
+					</optgroup>
+				</select>
 			</div>
 
-			<fieldset class="fieldsetOne">
+			<div>
+				<fieldset class="widthStyle">
 					<legend>Technical Skills</legend>
 				
 					<div>
@@ -187,6 +227,7 @@
 						<input type="checkbox" id="pythonOption" name="pythonOption" value="pythonOption">
 					</div>
 			</fieldset>
+			</div>
 			
 			<div>
 				<button type="reset">Reset</button>
